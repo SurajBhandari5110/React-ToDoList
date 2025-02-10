@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React SPA(SinglePageApp)</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+  
+  <script>
+    function toggleSubheadings(titleElement) {
+        document.querySelectorAll('.list-group ul').forEach(ul => ul.classList.add('d-none'));
+        const subheadingList = titleElement.nextElementSibling;
+        if (subheadingList && subheadingList.tagName === 'UL') {
+            subheadingList.classList.toggle('d-none');
+        }
+    }
+
+    function showContent(content) {
+        document.getElementById('main-content').innerHTML = `<p>${content}</p>`;
+    }
+</script>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    const toggleButton = document.getElementById('dark-mode-toggle');
+    const body = document.body;
+
+    toggleButton.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        const icon = toggleButton.querySelector('span');
+        icon.textContent = body.classList.contains('dark-mode') ? '🌜' : '🌞';
+    });
+
+    function showContent(content) {
+        const mainContentDiv = document.getElementById('main-content');
+        mainContentDiv.innerHTML = content;
+    }
+</script>
+</html>
